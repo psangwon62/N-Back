@@ -1,106 +1,192 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
     margin: 0;
+    background-color: #f0f0f0;
+}
+hr {
+    width: 100%; 
+    margin-bottom: 70px;
 }
 
-#settings-container, #game-container {
-    text-align: center;
-    background: #fff;
+label {
+    margin-bottom: 20px;
+    margin-left: auto;
+}
+
+#game-title {
+    margin-top: 100px;
+    margin-bottom: 80px;
+}
+
+#setting-panel{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#start-button {
+    margin-top: 80px;
+    padding: 10px 50px;
+    border: 1px solid #75baff;
+    border-radius: 20px;
+    background-color: rgb(181, 240, 255);
+    cursor: pointer;
+}
+
+#settings-container {
+    width: 900px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.1);
 }
 
 #game-container {
+    width: 900px;
+    height: 500px;
     display: none;
     flex-direction: column;
     align-items: center;
-    width: 80%;
-    max-width: 600px;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 #header {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 10px;
-    background-color: #e0e0e0;
-    padding: 10px;
+    align-items: center;
+}
+
+#question-container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+#header-right {
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#question-number {
+    display: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#remaining-questions, #timer {
+    font-weight: bold;
+    padding: 5px 20px;
+    
     border-radius: 10px;
 }
 
-#question-number, #remaining-questions {
-    font-size: 18px;
-    color: #555;
-}
-
-#instructions {
-    font-size: 18px;
-    margin: 10px 0;
-    color: #333;
-    padding: 10px;
-    background-color: #f7f7f7;
-    border-radius: 10px;
-    width: 100%;
+#remaining-questions {
+    display: none;
+    color: #ff6b6b;
+    font-size: 20px;
+    border: solid 1px #ff6b6b;
+    margin-right: 20px;
 }
 
 #timer {
     font-size: 24px;
-    margin-bottom: 10px;
-    color: #e74c3c;
+    color: #15aabf;
+    border: 1px solid #15aabf;
+}
+
+#instructions {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+#shape-container {
+    display: flex;
+    justify-content: center;
 }
 
 #shape {
-    width: 100px;
-    height: 100px;
+    width: 200px; /* 크기 조정 */
+    height: 200px; /* 크기 조정 */
+    margin-right: 40px;
     margin-bottom: 20px;
-}
-
-.triangle {
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-bottom: 100px solid #555;
-}
-
-.square {
-    width: 100px;
-    height: 100px;
-    background-color: #555;
-}
-
-.circle {
-    width: 100px;
-    height: 100px;
-    background-color: #555;
-    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 #controls {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.spacebar {
+    font-size: 12px;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.arrow {
+    padding: 0px 10px;
+    font-size: 20px;
+    margin-left: 35px;
+}
+
+#keyboard-btn {
+    border: solid 2px #495057;
+    border-radius: 5px;
+    margin-right: 20px;
 }
 
 .control-button {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 16px;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border: 1px solid #ced4da;
+    border-radius: 20px;
+    background-color: white;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
-.control-button span {
-    display: block;
-    margin-top: 5px;
+.control-button .key {
     font-size: 14px;
-    color: #999;
+    color: #868e96;
+    margin-bottom: 5px;
+}
+
+.control-button .action {
+    font-size: 16px;
+    color: #495057;
+}
+
+.control-button.highlight {
+    background-color: #e3fafc;
+    border-color: #15aabf;
+}
+
+.control-button.highlight .key,
+.control-button.highlight .action {
+    color: #15aabf;
 }

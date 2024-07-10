@@ -1,37 +1,56 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>N-Back Game</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <div id="settings-container">
-        <h1>N-Back Game</h1>
-        <label>
-            문항 수: <input type="number" id="num-questions" value="10" min="1">
-        </label>
-        <label>
-            타이머 시간(초): <input type="number" id="timer-seconds" value="3" min="1">
-        </label>
-        <button onclick="startGame()">게임 시작</button>
+        <h1 id="game-title">N-Back Game</h1>
+        <div id=setting-panel>
+            <label id="setting-label">
+                문항 수: <input type="number" id="num-questions" value="10" min="1">
+            </label>
+            <label id="setting-label">
+                타이머 시간(초): <input type="number" id="timer-seconds" value="3" min="1">
+            </label>
+        </div>
+        <button id="start-button" onclick="startGame()">게임 시작</button>
     </div>
     <div id="game-container">
         <div id="header">
             <div id="question-number"></div>
-            <div id="remaining-questions"></div>
+            <div id="header-right">
+                <div id="remaining-questions"></div>
+                <div id="timer"></div>
+            </div>
         </div>
+        <hr />
         <div id="instructions"></div>
-        <div id="timer">3</div>
-        <div id="shape"></div>
-        <div id="controls">
-            <button class="control-button" id="same-2-back">같음 (2번째 전)<br><span>←</span></button>
-            <button class="control-button" id="same-3-back">같음 (3번째 전)<br><span>→</span></button>
-            <button class="control-button" id="different">다름 (둘 다 아님)<br><span>SPACE BAR</span></button>
+        <div id="question-container">
+            <div id="shape"></div>
+            <div id="controls">
+                <button class="control-button" id="different">
+                    <span class="spacebar" id="keyboard-btn">SPACE BAR</span>
+                    <span> 다름 (둘 다 아님)</span>
+                </button>
+                <button class="control-button" id="same-2-back">
+                    <span class="arrow" id="keyboard-btn">⭠</span>
+                    <span> 같음 (2번째 전)</span>
+                </button>
+                <button class="control-button" id="same-3-back">
+                    <span class="arrow" id="keyboard-btn">⭢</span>
+                    <span> 같음 (3번째 전)</span>
+                </button>
+            </div>
         </div>
     </div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
